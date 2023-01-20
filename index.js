@@ -13,7 +13,7 @@ const managerAccount = new Manager("Deorren", 26, "erive92d@gmail.com", 8127);
 let storeInfos = [managerAccount]
 
 
-
+//GIVES USER AN OPTION TO ADD A MEMBER
 function choiceAdd() {
   inquirer
     .prompt({
@@ -39,6 +39,7 @@ function choiceAdd() {
     });
 }
 
+//MANAGER IS PREMADE ON LINE 10
 const selectRole = function () {
   inquirer
     .prompt({
@@ -52,7 +53,7 @@ const selectRole = function () {
       if (answer.role === "Manager") {
         inquirer.prompt({
           type: "input",
-          message: "Enter your name (Case sensitive)",
+          message: "Enter your name (Case sensitive)", //USER WILL NEED TO ENTER THE MANAGER'S NAME IN ABLE TO HAVE ACCESS, KIND OF LIKE A PASSWORD
           name: "manager",
           validate: (value) => {
             if (value === managerAccount.name) {
@@ -133,7 +134,7 @@ const addTeam = () => {
     //SELECTS WHICH ROLE WE SHOULD MAKE
     if (answers.role === "Engineer") {
       console.log(`You've selected ${answers.role}`)
-      engineerMaker(answers)
+      engineerMaker(answers) 
     } else if (answers.role === "Intern") {
         console.log(`You've selected ${answers.role}`)
         internMaker(answers)
@@ -150,6 +151,8 @@ const engineerMaker = function (member) {
   console.log(
     `Welcome to the Team, ${member.name}. You are an ${member.role}, which means you will need to provide your gitHub account`
   );
+
+  //ENGINEER NEEDS TO PROVIDE A GITHUB ACCOUNT
   const gitHub = {
     type: "input",
     message: "Enter GitHub account:",
@@ -169,8 +172,8 @@ const engineerMaker = function (member) {
       member.email,
       answers.github
     );
-    storeInfos.push(newEngineer)
-    addMore()
+    storeInfos.push(newEngineer)//PUSH TO GLOBAL ARRAY
+    addMore() 
     
     
   });
@@ -180,7 +183,7 @@ const internMaker = function (member) {
   console.log(
     `Welcome to the Team ${member.name}. Please enter your school name`
   );
-
+    //INTERN WILL NEED TO PROVIDE A SCHOOL NAME
   const schoolName = {
     type: "input",
     message: "Enter School Name:",
@@ -200,7 +203,7 @@ const internMaker = function (member) {
       member.email,
       school.school
     );
-    storeInfos.push(newIntern)
+    storeInfos.push(newIntern) //PUSH TO GLOBAL ARRAY
     addMore()
     
    
@@ -218,7 +221,7 @@ const addMore = () => {
         if(answer.addmore) {
             return addTeam()
         } else {
-            fs.writeFile("mainpage.html",template(storeInfos),err => {
+            fs.writeFile("mainpage.html",template(storeInfos),err => { //WILL CREATE AN HTML FILE
                 err? console.log(err) : console.log("success")
             })
         }
@@ -228,5 +231,5 @@ const addMore = () => {
 
 
 
-
+//START FROM HERE
 selectRole();

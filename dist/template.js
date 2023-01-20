@@ -1,44 +1,48 @@
-const whichRole = (data) => {
-
-  let html = ''
+const whichRole = (data) => { 
+  let html = "";
   for (let i = 0; i < data.length; i++) {
-    if (data[i].getRole() === "Manager") {
-      let role = data[i]
-     html += ` <div class="container manager">
+    if (data[i].getRole() === "Manager") { 
+      let role = data[i];
+      html += ` <div class="container manager">
       <div class="title">${role.getRole()}</div>
       <div class="info-card">
         <div class="info name">Name: ${role.name} </div>
         <div class="info id">ID: ${role.id}</div>
-        <div class="info email">Email: <a href="" target="__blank">${role.email}</a></div>
+        <div class="info email">Email: <a href="" target="__blank">${
+          role.email
+        }</a></div>
         <div class="info office">Office: ${role.officenum}</div>
       </div>
-    </div>`
-    } 
+    </div>`;
+    }
     if (data[i].getRole() === "Engineer") {
-        let role = data[i]
-       html += ` <div class="container engineer">
+      let role = data[i];
+      html += ` <div class="container engineer">
         <div class="title">${role.getRole()}</div>
         <div class="info-card">
         <div class="info name">Name: ${role.name} </div>
         <div class="info id">ID: ${role.id}</div>
-        <div class="info email">Email: <a href="" target="__blank">${role.email}</a></div>
-        <div class="info github">Github: ${role.github}</div>
+        <div class="info email">Email: <a href="mailto:${role.email}" target="__blank">${
+          role.email
+        }</a></div>
+        <div class="info github">Github: <a href="https://github.com/${role.github}" target="__blank">${role.github}</a></div>
         </div>
-      </div>`
-      }
-      if (data[i].getRole() === "Intern") {
-        let role = data[i]
-       html += ` <div class="container intern">
+      </div>`;
+    }
+    if (data[i].getRole() === "Intern") {
+      let role = data[i];
+      html += ` <div class="container intern">
         <div class="title">${role.getRole()}</div>
         <div class="info-card">
         <div class="info name">Name: ${role.name} </div>
         <div class="info id">ID: ${role.id}</div>
-        <div class="info email">Email: <a href="" target="__blank">${role.email}</a></div>
+        <div class="info email">Email: <a href="" target="__blank">${
+          role.email
+        }</a></div>
         <div class="info school">School: ${role.school}</div>
         </div>
-      </div>`
-      }
-      
+      </div>`;
+    }
   }
   let fullHTML = `
       <!DOCTYPE html>
@@ -63,15 +67,8 @@ const whichRole = (data) => {
       
     </footer>
       </html>
-      `
-  return fullHTML
-  
-
- 
+      `;
+  return fullHTML;
 };
 
-
-
-
-
-module.exports = whichRole
+module.exports = whichRole;
