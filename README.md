@@ -38,7 +38,8 @@ inquirer, jest
 ## Usage
 To add a screenshot, create an assets/images folder in your repository and upload your screenshot to it.
 
-![alt text](assets/images/screenshot.png)
+![2023-01-14](https://user-images.githubusercontent.com/110507887/212520104-faaaac29-05f4-4b6b-8b13-b9e014127da8.png)
+
 
 DEMO:
 
